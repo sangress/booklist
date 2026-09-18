@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Index of /home/books/</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #000000;
+    --muted: #666666;
+    --border: #000000;
+    --link: #0000EE;
+    --link-visited: #551A8B;
+    --row-hover: #f0f0f0;
+    --wish: #666666;
+    --now: #b45f06;
+    --done: #2d7a2d;
+    --input-bg: #ffffff;
+    --input-border: #999999;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1e1e1e;
+      --fg: #e0e0e0;
+      --muted: #999999;
+      --border: #666666;
+      --link: #6aa8ff;
+      --link-visited: #b795e0;
+      --row-hover: #2a2a2a;
+      --wish: #aaaaaa;
+      --now: #e0a458;
+      --done: #6fbf73;
+      --input-bg: #2a2a2a;
+      --input-border: #555555;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1e1e1e;
+    --fg: #e0e0e0;
+    --muted: #999999;
+    --border: #666666;
+    --link: #6aa8ff;
+    --link-visited: #b795e0;
+    --row-hover: #2a2a2a;
+    --wish: #aaaaaa;
+    --now: #e0a458;
+    --done: #6fbf73;
+    --input-bg: #2a2a2a;
+    --input-border: #555555;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    margin: 0;
+    padding: 24px 20px 60px 20px;
+    line-height: 1.4;
+  }
+
+  h1 {
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0 0 8px 0;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 8px 0;
+  }
+
+  .listing-wrap {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 620px;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 2px 10px 2px 0;
+    white-space: nowrap;
+    font-weight: normal;
+  }
+
+  th {
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 4px;
+  }
+  th:hover { text-decoration: underline; }
+  th .arrow { font-size: 11px; color: var(--muted); }
+
+  td.desc, th.desc {
+    white-space: normal;
+  }
+
+  .bidi {
+    unicode-bidi: plaintext;
+  }
+  td.bidi {
+    white-space: normal;
+    max-width: 220px;
+  }
+
+  tr.row:hover { background: var(--row-hover); }
+
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:visited { color: var(--link-visited); }
+
+  .tag {
+    display: inline-block;
+    width: 62px;
+  }
+  .tag-wish { color: var(--wish); }
+  .tag-now  { color: var(--now); }
+  .tag-done { color: var(--done); }
+
+  .actions a { margin-right: 10px; font-size: 13px; color: var(--muted); }
+  .actions a:hover { color: var(--link); text-decoration: underline; }
+
+  .empty-msg {
+    color: var(--muted);
+    padding: 10px 0;
+  }
+
+  .footer {
+    color: var(--muted);
+    margin-top: 6px;
+    font-size: 13px;
+  }
+
+  .add-section {
+    margin-top: 34px;
+    max-width: 620px;
+  }
+
+  .add-section .prompt {
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .add-form {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 8px 10px;
+    align-items: center;
+  }
+
+  .add-form label {
+    color: var(--muted);
+  }
+
+  .add-form input[type="text"],
+  .add-form select {
+    font-family: inherit;
+    font-size: 14px;
+    background: var(--input-bg);
+    color: var(--fg);
+    border: 1px solid var(--input-border);
+    padding: 4px 6px;
+    width: 100%;
+  }
+
+  .add-form .submit-row {
+    grid-column: 1 / -1;
+    margin-top: 6px;
+  }
+
+  button.submit {
+    font-family: inherit;
+    font-size: 14px;
+    background: none;
+    border: 1px solid var(--input-border);
+    color: var(--fg);
+    padding: 4px 14px;
+    cursor: pointer;
+  }
+  button.submit:hover {
+    background: var(--row-hover);
+    text-decoration: underline;
+  }
+
+  .hint {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 30px;
+  }
+
+  @media (max-width: 480px) {
+    .add-form {
+      grid-template-columns: 1fr;
+    }
+    .add-form label { margin-top: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Index of /home/books/</h1>
+<hr>
+
+<div class="listing-wrap">
+<table id="listing">
+  <thead>
+    <tr>
+      <th data-sort="name">Name<span class="arrow" data-arrow="name"></span></th>
+      <th data-sort="date">Last modified<span class="arrow" data-arrow="date"></span></th>
+      <th data-sort="status">Status<span class="arrow" data-arrow="status"></span></th>
+      <th data-sort="size">Size<span class="arrow" data-arrow="size"></span></th>
+      <th data-sort="author">Author<span class="arrow" data-arrow="author"></span></th>
+      <th class="desc">Description</th>
+    </tr>
+  </thead>
+  <tbody id="rows"></tbody>
+</table>
+</div>
+<hr>
+<div class="footer" id="footer"></div>
+
+<div class="add-section">
+  <div class="prompt">put(1) new entry into /home/books/ &mdash;</div>
+  <div class="add-form">
+    <label for="f-title">Title</label>
+    <input type="text" id="f-title" placeholder="The Name of the Wind">
+
+    <label for="f-author">Author</label>
+    <input type="text" id="f-author" placeholder="Patrick Rothfuss">
+
+    <label for="f-status">Status</label>
+    <select id="f-status">
+      <option value="wish">want to read</option>
+      <option value="now">currently reading</option>
+      <option value="done">read</option>
+    </select>
+
+    <label for="f-genre">Notes</label>
+    <input type="text" id="f-genre" placeholder="fantasy, recommended by J.">
+
+    <div class="submit-row">
+      <button class="submit" id="add-btn" type="button">-&gt; add file</button>
+    </div>
+  </div>
+  <div class="hint">Stored locally in this browser. Click column headers to sort. "rm" removes an entry.</div>
+</div>
+
+<script>
+(function () {
+  var STORAGE_KEY = 'apache-booklist-v1';
+  var rowsEl = document.getElementById('rows');
+  var footerEl = document.getElementById('footer');
+
+  var sortState = { key: 'date', dir: 'desc' };
+
+  var STATUS_META = {
+    wish: { label: '[WISH]', text: 'want to read', ext: '.want', cls: 'tag-wish' },
+    now:  { label: '[NOW]',  text: 'currently reading', ext: '.reading', cls: 'tag-now' },
+    done: { label: '[DONE]', text: 'read', ext: '.done', cls: 'tag-done' }
+  };
+
+  function loadBooks() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return seedDefault();
+      var parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed)) return seedDefault();
+      return parsed;
+    } catch (e) {
+      return seedDefault();
+    }
+  }
+
+  function seedDefault() {
+    var now = Date.now();
+    return [
+      { id: 'seed1', title: 'The Name of the Wind', author: 'Patrick Rothfuss', status: 'wish', genre: 'fantasy — example entry, delete me', added: now - 3 * 86400000 },
+      { id: 'seed2', title: 'Project Hail Mary', author: 'Andy Weir', status: 'now', genre: 'sci-fi — example entry, delete me', added: now - 1 * 86400000 },
+      { id: 'seed3', title: 'Braiding Sweetgrass', author: 'Robin Wall Kimmerer', status: 'done', genre: 'nonfiction — example entry, delete me', added: now - 10 * 86400000 },
+      { id: 'seed4', title: 'סוס אחד נכנס לבר', author: 'דויד גרוסמן', status: 'wish', genre: 'עברית — example entry, delete me', added: now - 5 * 86400000 }
+    ];
+  }
+
+  function saveBooks(books) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(books));
+      return true;
+    } catch (e) {
+      console.error('Could not save book list', e);
+      return false;
+    }
+  }
+
+  var books = loadBooks();
+
+  function slugify(str) {
+    var s = (str || 'untitled').trim();
+    try {
+      // Keep letters (any script, incl. Hebrew) and numbers; collapse the rest to hyphens.
+      s = s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '-').replace(/(^-|-$)/g, '');
+    } catch (e) {
+      // Fallback for environments without Unicode property escapes.
+      s = s.toLowerCase().replace(/[^a-z0-9\u0590-\u05FF]+/g, '-').replace(/(^-|-$)/g, '');
+    }
+    return s || 'untitled';
+  }
+
+  function pseudoSize(book) {
+    var str = (book.title || '') + '|' + (book.author || '') + '|' + book.id;
+    var hash = 0;
+    for (var i = 0; i < str.length; i++) {
+      hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
+    }
+    var kb = 4 + (hash % 480); // between 4K and ~483K, purely cosmetic
+    if (kb >= 1000) {
+      return (kb / 1000).toFixed(1) + 'M';
+    }
+    return kb + 'K';
+  }
+
+  function formatDate(ts) {
+    var d = new Date(ts);
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var day = String(d.getDate()).padStart(2, '0');
+    var mon = months[d.getMonth()];
+    var yr = d.getFullYear();
+    var hh = String(d.getHours()).padStart(2, '0');
+    var mm = String(d.getMinutes()).padStart(2, '0');
+    return day + '-' + mon + '-' + yr + ' ' + hh + ':' + mm;
+  }
+
+  function escapeHtml(str) {
+    return (str || '').replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function sizeToKb(sizeStr) {
+    if (sizeStr.indexOf('M') !== -1) return parseFloat(sizeStr) * 1000;
+    return parseFloat(sizeStr);
+  }
+
+  function sortBooks(list) {
+    var key = sortState.key;
+    var dir = sortState.dir === 'asc' ? 1 : -1;
+    var withMeta = list.map(function (b) {
+      return {
+        book: b,
+        name: slugify(b.title) + STATUS_META[b.status].ext,
+        size: pseudoSize(b)
+      };
+    });
+    withMeta.sort(function (a, b) {
+      var av, bv;
+      if (key === 'name') { av = a.name; bv = b.name; }
+      else if (key === 'date') { av = a.book.added; bv = b.book.added; }
+      else if (key === 'status') { av = a.book.status; bv = b.book.status; }
+      else if (key === 'size') { av = sizeToKb(a.size); bv = sizeToKb(b.size); }
+      else if (key === 'author') { av = (a.book.author || '').toLowerCase(); bv = (b.book.author || '').toLowerCase(); }
+      if (av < bv) return -1 * dir;
+      if (av > bv) return 1 * dir;
+      return 0;
+    });
+    return withMeta.map(function (m) { return m.book; });
+  }
+
+  function updateArrows() {
+    document.querySelectorAll('.arrow').forEach(function (el) {
+      var key = el.getAttribute('data-arrow');
+      if (key === sortState.key) {
+        el.textContent = sortState.dir === 'asc' ? ' \u25B2' : ' \u25BC';
+      } else {
+        el.textContent = '';
+      }
+    });
+  }
+
+  function render() {
+    var sorted = sortBooks(books);
+    rowsEl.innerHTML = '';
+
+    if (sorted.length === 0) {
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td colspan="6" class="empty-msg">Directory is empty. Add your first book below.</td>';
+      rowsEl.appendChild(tr);
+    } else {
+      sorted.forEach(function (b) {
+        var meta = STATUS_META[b.status] || STATUS_META.wish;
+        var filename = slugify(b.title) + meta.ext;
+        var tr = document.createElement('tr');
+        tr.className = 'row';
+        tr.innerHTML =
+          '<td>' +
+            '<span class="tag ' + meta.cls + '">' + meta.label + '</span>' +
+            '<a href="#" class="toggle-status bidi" dir="auto" data-id="' + b.id + '" title="click to change status">' +
+              escapeHtml(filename) +
+            '</a>' +
+          '</td>' +
+          '<td>' + formatDate(b.added) + '</td>' +
+          '<td>' + meta.text + '</td>' +
+          '<td>' + pseudoSize(b) + '</td>' +
+          '<td class="bidi" dir="auto">' + escapeHtml(b.author || '') + '</td>' +
+          '<td class="desc bidi" dir="auto">' +
+            (b.genre ? escapeHtml(b.genre) : '') +
+            ' <span class="actions"><a href="#" class="rm-link" data-id="' + b.id + '">rm</a></span>' +
+          '</td>';
+        rowsEl.appendChild(tr);
+      });
+    }
+
+    var totalKb = sorted.reduce(function (sum, b) { return sum + sizeToKb(pseudoSize(b)); }, 0);
+    var totalDisplay = totalKb >= 1000 ? (totalKb / 1000).toFixed(1) + 'M' : Math.round(totalKb) + 'K';
+    footerEl.textContent = sorted.length + ' item' + (sorted.length === 1 ? '' : 's') +
+      ', ' + totalDisplay + ' total \u2014 Book-Server/1.0 (Unix)';
+
+    updateArrows();
+    attachRowHandlers();
+  }
+
+  function attachRowHandlers() {
+    document.querySelectorAll('.rm-link').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        var id = el.getAttribute('data-id');
+        books = books.filter(function (b) { return b.id !== id; });
+        saveBooks(books);
+        render();
+      });
+    });
+    document.querySelectorAll('.toggle-status').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        var id = el.getAttribute('data-id');
+        var order = ['wish', 'now', 'done'];
+        books = books.map(function (b) {
+          if (b.id === id) {
+            var idx = order.indexOf(b.status);
+            b.status = order[(idx + 1) % order.length];
+          }
+          return b;
+        });
+        saveBooks(books);
+        render();
+      });
+    });
+  }
+
+  document.querySelectorAll('th[data-sort]').forEach(function (th) {
+    th.addEventListener('click', function () {
+      var key = th.getAttribute('data-sort');
+      if (sortState.key === key) {
+        sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
+      } else {
+        sortState.key = key;
+        sortState.dir = key === 'date' ? 'desc' : 'asc';
+      }
+      render();
+    });
+  });
+
+  document.getElementById('add-btn').addEventListener('click', function () {
+    var titleEl = document.getElementById('f-title');
+    var authorEl = document.getElementById('f-author');
+    var statusEl = document.getElementById('f-status');
+    var genreEl = document.getElementById('f-genre');
+
+    var title = titleEl.value.trim();
+    if (!title) {
+      titleEl.focus();
+      return;
+    }
+
+    var newBook = {
+      id: 'b' + Date.now() + Math.random().toString(36).slice(2, 7),
+      title: title,
+      author: authorEl.value.trim(),
+      status: statusEl.value,
+      genre: genreEl.value.trim(),
+      added: Date.now()
+    };
+
+    books.push(newBook);
+    saveBooks(books);
+
+    titleEl.value = '';
+    authorEl.value = '';
+    genreEl.value = '';
+    statusEl.value = 'wish';
+    titleEl.focus();
+
+    sortState.key = 'date';
+    sortState.dir = 'desc';
+    render();
+  });
+
+  ['f-title', 'f-author', 'f-genre'].forEach(function (id) {
+    document.getElementById(id).addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        document.getElementById('add-btn').click();
+      }
+    });
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
