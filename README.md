@@ -19,4 +19,6 @@ Your list is saved in the browser's local storage — nothing is sent to a serve
 
 The list ships with a few example entries marked "delete me." Remove them (if you not wish for them) with `rm` to start your own list.
 
+<img width="1840" height="715" alt="Screenshot From 2026-09-18 07-25-34" src="https://github.com/user-attachments/assets/9e3399bf-d7ab-47da-8661-d42668510e67" />
+
 
